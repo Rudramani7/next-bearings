@@ -18,9 +18,10 @@ export default async function ProductPage({ params, searchParams }) {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <nav className="text-sm text-black mb-4">
-        Home &gt; {category} &gt; <span className="text-black">{product.title}</span>
+      <nav className="text-sm text-black mb-4" aria-label="Breadcrumb">
+        Home {'>'} {category} {'>'} <span className="text-black">{product.title}</span>
       </nav>
+
 
       <div className="border border-gray-300 rounded p-4 sm:p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
