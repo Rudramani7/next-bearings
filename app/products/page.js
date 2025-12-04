@@ -31,10 +31,10 @@ export default async function ProductsPage({ searchParams }) {
           {breadcrumb ? (
             <div className="text-sm mb-2">
               <span className="font-bold text-black">{breadcrumb.gp}</span>
-              <span className="mx-1 text-gray-500">&gt;</span>
+              <span className="mx-1 text-gray-500">{'>'}</span>
 
               <span className="font-bold text-black">{breadcrumb.p}</span>
-              <span className="mx-1 text-gray-500">&gt;</span>
+              <span className="mx-1 text-gray-500">{'>'}</span>
 
               <span className="text-gray-700">{breadcrumb.child}</span>
             </div>
@@ -42,6 +42,7 @@ export default async function ProductsPage({ searchParams }) {
             <div className="text-sm mb-2 text-gray-700">{category}</div>
           ) : null}
         </div>
+
       </div>
 
       <div className="flex flex-col md:flex-row gap-6">
@@ -72,7 +73,7 @@ export default async function ProductsPage({ searchParams }) {
             </button>
           </div>
         </aside>
-        
+
         {/* PLP */}
         <section className="flex-1">
           <ProductsControls initialColumns={4} />
