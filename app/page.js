@@ -47,7 +47,6 @@ export default function Home() {
     { text: "Bon service et livraison rapide", name: "Ghislain Bernier", date: "12 September 2025" }
   ];
 
-
   const worldBrand = [
     { img: "/assets/NSK.webp", link: "#" },
     { img: "/assets/Koyo.webp", link: "#" },
