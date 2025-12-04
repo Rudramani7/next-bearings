@@ -52,7 +52,7 @@ export default async function ProductsPage({ searchParams }) {
             style={{ backgroundColor: 'rgb(202,150,24)' }}
           >
             <span className="text-white font-semibold font-['Roboto_Slab'] hover:text-black text-[16px] leading-[24px]">
-              Can't Find The Product You Are Looking For?
+              {"Can't Find The Product You Are Looking For?"}
             </span>
           </div>
 
