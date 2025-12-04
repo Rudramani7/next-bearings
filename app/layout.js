@@ -2,8 +2,8 @@ import './globals.css'
 import ClientProviders from '../components/ClientProviders'
 
 export const metadata = {
-  title: 'DummyJSON Store',
-  description: 'Assessment project using DummyJSON'
+  title: 'Bearings Online',
+  description: 'Next Assessment project'
 }
 
 export default function RootLayout({ children }) {
