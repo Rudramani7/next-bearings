@@ -53,8 +53,8 @@ export default function Header() {
         {/* mobile */}
         <div className="sm:hidden w-full px-4 py-2 flex items-center justify-center">
           <div className="flex items-center gap-2 text-white text-sm font-bold">
-            <User className="w-4 h-4 text-white stroke-[2]" />
-            <span>Contact Us</span>
+            <Phone className="w-4 h-4 text-white stroke-[2]" />
+            <span>Call Us</span>
           </div>
         </div>
 
@@ -90,18 +90,14 @@ export default function Header() {
       >
         <div className="container mx-auto p-4 flex items-center justify-between w-full">
 
-          {/* mobile */}
+          {/* mobile menu*/}
           <div className="w-full flex items-center justify-between sm:hidden">
             <button
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMobileMenuOpen(prev => !prev)}
+              aria-label="Open menu"
+              onClick={() => setMobileMenuOpen(true)}
               className="p-2"
             >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-gray-800" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-800" />
-              )}
+              <Menu className="w-6 h-6 text-gray-800" />
             </button>
 
             <Link href="/" className="flex items-center">
@@ -278,24 +274,38 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile  */}
+      {/* Mobile dropdown */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-60">
+        <div className="fixed inset-0 z-50 sm:hidden">
           <div
             className="absolute inset-0 bg-black/30"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="absolute inset-0 overflow-auto">
+
+          <div
+            className="absolute left-0 top-0 bottom-0 w-[85%] overflow-auto"
+            style={{ top: 'var(--topbar-height, 0px)' }}
+          >
             <div className="min-h-full flex flex-col">
-              <div className="flex items-center justify-between p-4" style={{ backgroundColor: 'rgb(28,37,65)', borderBottom: '4px solid rgb(202,150,24)' }}>
-                <div className="flex items-center gap-3">
-                  <Image src="/assets/logo.webp" alt="Logo" width={120} height={36} className="object-contain" />
-                </div>
+              <div
+                className="flex items-center justify-between p-4"
+                style={{
+                  backgroundColor: 'rgb(28,37,65)',
+                  borderBottom: '4px solid rgb(202,150,24)',
+                }}
+              >
+                <Image
+                  src="/assets/logo.webp"
+                  alt="Logo"
+                  width={120}
+                  height={36}
+                  className="object-contain"
+                />
 
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"
-                  className="p-2 rounded-md bg-white/10 hover:bg-white/20 text-white focus:outline-none"
+                  className="p-2 text-white"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -303,34 +313,59 @@ export default function Header() {
 
               <div className="flex-1 bg-[rgb(28,37,65)] p-4">
                 <div className="max-w-3xl mx-auto text-white">
-                  <div className="mb-4 text-sm opacity-90">Explore categories</div>
+                  <div className="mb-4 text-sm opacity-90">
+                    Explore categories
+                  </div>
 
                   <div className="space-y-3">
                     {navItems.map((nav, idx) => (
-                      <div key={idx} className="bg-white/6 rounded-lg overflow-hidden">
+                      <div
+                        key={idx}
+                        className="bg-white/6 rounded-lg overflow-hidden"
+                      >
                         <button
-                          onClick={() => setExpandedMenuIndex(prev => prev === idx ? null : idx)}
-                          className="w-full flex items-center justify-between px-4 py-4 text-left text-white"
+                          onClick={() =>
+                            setExpandedMenuIndex(prev =>
+                              prev === idx ? null : idx
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-4 py-4 text-left"
                         >
-                          <span className="text-lg font-semibold">{nav.title}</span>
-                          <ChevronDown className={`w-5 h-5 text-white transition-transform ${expandedMenuIndex === idx ? 'rotate-180' : 'rotate-0'}`} />
+                          <span className="text-lg font-semibold">
+                            {nav.title}
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform ${expandedMenuIndex === idx ? 'rotate-180' : ''
+                              }`}
+                          />
                         </button>
 
-                        <div className={`px-4 transition-max-height duration-300 ease-in-out overflow-hidden ${expandedMenuIndex === idx ? 'max-h-[1000px] pb-4' : 'max-h-0'}`}>
+                        <div
+                          className={`px-4 overflow-hidden transition-all duration-300 ${expandedMenuIndex === idx
+                            ? 'max-h-[1000px] pb-4'
+                            : 'max-h-0'
+                            }`}
+                        >
                           {nav.parents.map((parent, pIdx) => (
-                            <div key={pIdx} className="pt-2 pb-3 border-t border-white/10">
-                              <div className="text-sm font-medium text-white/90 mb-2">{parent.title}</div>
-                              <div className="grid grid-cols-2 gap-3">
-                                {parent.children.map((child, cIdx) => (
-                                  <button
-                                    key={cIdx}
-                                    onClick={() => handleMobileNavClick(child)}
-                                    className="text-left py-2 px-3 rounded-md bg-white/6 hover:bg-white/10 text-white"
-                                  >
-                                    {child}
-                                  </button>
-                                ))}
+                            <div
+                              key={pIdx}
+                              className="pt-2 pb-3 border-t border-white/10"
+                            >
+                              <div className="text-sm font-medium mb-2">
+                                {parent.title}
                               </div>
+
+                              {parent.children.map((child, cIdx) => (
+                                <button
+                                  key={cIdx}
+                                  onClick={() =>
+                                    handleMobileNavClick(child)
+                                  }
+                                  className="block w-full text-left py-2 px-3 rounded-md bg-white/6 hover:bg-white/10"
+                                >
+                                  {child}
+                                </button>
+                              ))}
                             </div>
                           ))}
                         </div>
