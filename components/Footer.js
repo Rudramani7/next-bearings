@@ -11,7 +11,7 @@ export default function Footer() {
 
   const brandLogos = [
     { src: "/assets/BE2023.webp", w: 350, h: 96 },
-    { src: "/assets/SC21.webp", w: 394, h: 96 },
+    { src: "/assets/sc21.webp", w: 394, h: 96 },
     { src: "/assets/IIP.jpg", w: 227, h: 80 },
     { src: "/assets/Queens_Award_White.webp", w: 151, h: 80 },
   ];
