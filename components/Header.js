@@ -31,7 +31,7 @@ export default function Header() {
 
   const promoItems = [
     { src: '/assets/free-delivery.webp', alt: 'Free Delivery', title: 'Free Delivery', subtitle: 'Over $500.00' },
-    { src: '/assets/UK-delivery.webp', alt: '1-3 Day Shipping', title: '1-3 Day DHL & UPS', subtitle: 'Delivery' },
+    { src: '/assets/UK-Delivery.webp', alt: '1-3 Day Shipping', title: '1-3 Day DHL & UPS', subtitle: 'Delivery' },
     { src: '/assets/Queens_Award.webp', alt: "Queen's Award", title: "Queen's Award For", subtitle: 'Enterprise Winners' },
     { src: '/assets/iso.webp', alt: 'ISO Certified', title: 'ISO 9001 : 2015', subtitle: 'Cert. No.291342018' },
     { src: '/assets/feefo.png', alt: 'Feefo', imgOnly: true },
