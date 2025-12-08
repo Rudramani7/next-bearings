@@ -20,7 +20,7 @@ export default function Home() {
     { img: "/assets/Maintenance.webp", title: "Maintance Tools" },
     { img: "/assets/dow.webp", title: "Dow Corning Products" },
     { img: "/assets/KluberPro.webp", title: "Kluber Products" },
-    { img: "/assets/ShellLub.webp", title: "Shell Lubricants" },
+    { img: "/assets/shellLub.webp", title: "Shell Lubricants" },
     { img: "/assets/Paste.webp", title: "Molykote Greases" },
     { img: "/assets/skf20grease.webp", title: "SKF Lubricants" }
   ];
